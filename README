@@ -1,0 +1,10 @@
+change_grade.py (string)Name (integer)NewGrade
+
+This python script will search the standard input for the line 
+containing STRING, and replace the grade value with NewGrade. 
+
+arg Name is case sensitive*
+
+Example usage
+
+change_grade.py Bill 90 < ./files/grades.csv
