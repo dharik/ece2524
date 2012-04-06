@@ -5,15 +5,16 @@ import fileinput
 from sys import stderr,stdout,argv,exit
 
 def changeGrade(name,newGrade):
+	lines = ""
 	for line in fileinput.input('-'):
 		m = re.search(name,line)
 		line = re.sub(r'\n','',line)
 		if m:
 			newline = re.sub(r'\d+',newGrade,line)
-			print newline
+			lines += newline
 		else:
-			print line
-	return
+			lines += line
+	return lines
 
 
 
@@ -23,7 +24,8 @@ if __name__=='__main__':
 		stderr.write("Usage: change_grade.py STRING INTEGER\n")
 		exit(1)
 	else:
-		changeGrade(argv[1],argv[2])
+		lines = changeGrade(argv[1],argv[2])
+		print lines
 	
 	
 
