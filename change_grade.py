@@ -8,7 +8,6 @@ def changeGrade(name,newGrade):
 	lines = ""
 	for line in fileinput.input('-'):
 		m = re.search(name,line)
-		line = re.sub(r'\n','',line)
 		if m:
 			newline = re.sub(r'\d+',newGrade,line)
 			lines += newline
